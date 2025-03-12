@@ -1,3 +1,4 @@
+
 import spellchecker
 
 sc = spellchecker.SpellChecker()
@@ -5,28 +6,27 @@ sc = spellchecker.SpellChecker()
 while(True):
     sc.printMenu()
 
-    txtIn = input()
+    txtIn = input("Inserisci la lingua:")
     # Add input control here!
 
     if int(txtIn) == 1:
         print("Inserisci la tua frase in Italiano\n")
-        txtIn = input()
-        sc.handleSentence(txtIn,"italian")
+        txtInput = input().lower()
+        print(sc.handleSentence(txtInput,"italian"))
         continue
 
     if int(txtIn) == 2:
         print("Inserisci la tua frase in Inglese\n")
-        txtIn = input()
-        sc.handleSentence(txtIn,"english")
+        txtInput = input().lower()
+        sc.handleSentence(txtInput,"english")
         continue
 
     if int(txtIn) == 3:
         print("Inserisci la tua frase in Spagnolo\n")
-        txtIn = input()
-        sc.handleSentence(txtIn,"spanish")
+        txtInput = input().lower()
+        sc.handleSentence(txtInput,"spanish")
         continue
 
     if int(txtIn) == 4:
+        print("Il traduttore è chiuso")
         break
-
-
