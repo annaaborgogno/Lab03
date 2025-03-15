@@ -14,8 +14,24 @@ class SpellChecker:
         paroleSbagliate = md.MultiDictionary().searchWord(testo, language)
         toc = datetime.datetime.now()
         print(f"Le parole errate sono {len(paroleSbagliate)} in un tempo di {toc - tic} s")
-        for parola in paroleSbagliate:
-            print(parola)
+        return paroleSbagliate
+
+
+    def handleSentenceLinear(self, txtInput, language):
+        tic = datetime.datetime.now()
+        testo = replaceChars(txtInput)
+        paroleTrovate = md.MultiDictionary().searchWordLinear(testo, language)
+        toc = datetime.datetime.now()
+        print(f"Le seguenti parole sono state trovate con la ricerca lineare in {toc - tic} s nel dizionario")
+        return paroleTrovate
+
+    def handleSentenceDichotomic(self, txtInput, language):
+        tic = datetime.datetime.now()
+        testo = replaceChars(txtInput)
+        paroleTrovate = md.MultiDictionary().searchWordDichotomic(testo, language)
+        toc = datetime.datetime.now()
+        print(f"Le seguenti parole sono state trovate con la ricerca dicotomica in {toc - tic} s nel dizionario")
+        return paroleTrovate
 
     def printMenu(self):
         print("______________________________\n" +
